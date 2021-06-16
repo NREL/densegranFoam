@@ -1,0 +1,15 @@
+ muMax 1e1;
+ muS 0.488;
+ delmu 0.413;
+ mu2 #calc "$muS+$delmu";
+ phiMuI  1.0;
+ betam  0.75;
+ thetam  #calc "(26+42)/2";
+ L0d 50;
+ I_0 0.027;
+ rhoS 430;
+ dS 0.001;
+
+p0           1.000e+4;
+pRef         1.000e+5;
+pRefS        0.000e+0;

@@ -1,0 +1,17 @@
+#!/bin/sh
+cd ${0%/*} || exit 1    # Run from this directory
+
+# Source tutorial clean functions
+. $WM_PROJECT_DIR/bin/tools/CleanFunctions
+
+cleanCase
+cp 0/alpha.particles.orig 0/alpha.particles
+rm -r VTK*
+cp constant/href_nlgf.orig constant/href_nlgf
+cp 0/href_nlgf.orig 0/href_nlgf
+rm log*
+rm core*
+rm *~
+rm */*~
+#cp -r ./meshRun/. ./
+#------------------------------------------------------------------------------

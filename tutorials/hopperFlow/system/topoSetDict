@@ -1,0 +1,88 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // convert to faces
+   {
+        name    gate0;
+        type    cellSet;
+        action  new;
+        source  zoneToCell;
+        sourceInfo
+        {
+            name baffleBlock1;
+        }
+    }
+    {
+        name    gate0_1;
+        type    cellSet;
+        action  new;
+        source  zoneToCell;
+        sourceInfo
+        {
+            name baffleBlock2;
+        }
+    }
+    {
+      name gateFace1;
+      type faceSet;
+      action new;
+      source cellToFace;
+      sourceInfo
+	{
+	  set gate0;
+	  option all;
+	}
+    }
+    {
+      name gateFace2;
+      type faceSet;
+      action new;
+      source cellToFace;
+      sourceInfo
+        {
+          set gate0_1;
+          option all;
+        }
+    }
+    {
+      name gateFace1;
+      type faceSet;
+      action subset;
+      source faceToFace;
+      sourceInfo
+        {
+          set gateFace2;
+          option all;
+        } 
+    }
+    // convert to zone
+    {
+      name gateZone;
+      type faceZoneSet;
+      action new;
+      source setToFaceZone;
+      sourceInfo
+	{
+	  faceSet gateFace1;
+	  option all;
+	}
+    }
+);
+
+// ************************************************************************* //

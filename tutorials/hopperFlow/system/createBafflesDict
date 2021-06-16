@@ -1,0 +1,161 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createBafflesDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include    "../parameters";
+internalFacesOnly true;
+internalField   uniform 0.0;
+
+baffles
+{
+    baffleFaces
+    {
+        type		faceZone;
+        zoneName	gateZone;
+    	flip		false;
+	
+        patches
+        {
+            master
+            {
+                name            gate;
+                type            wall;
+		patchFields
+		  {/*
+		    srnz
+		      {
+			type            calculated;
+			value           uniform 1e6;
+			}*/
+		    U.air
+		      {
+			type            fixedValue;
+			value           uniform (0 0 0);
+		      }
+		    U.particles
+                      {
+                        type            fixedValue;
+			value           uniform (0 0 0);
+                      }
+		    alpha.particles
+		      {
+			type            zeroGradient;
+		      }
+                    alphat.particles
+                      {
+                        type            calculated;
+			value           $internalField;
+                      }
+		    g_nlgf
+		      {
+			type fixedValue;
+			value uniform 1e-6;
+			/*
+        redirectType baffle_g;
+        code
+        #{
+          //      const IOdictionary& d = static_cast<const IOdictionary&>(dict);
+          #include "../../../parametersCode"
+          const fvPatch& boundaryPatch = patch();
+        const fvMesh& mesh = refCast<const fvMesh>(this->db());
+
+	volScalarField srnzF = mesh.lookupObject<volScalarField>("srnz");
+        scalarField srnz=srnzF.boundaryField()[boundaryPatch.index()];
+	volScalarField presF = db().lookupObject<volScalarField>("p_IR");
+        scalarField pres=presF.boundaryField()[boundaryPatch.index()];
+	scalarField& g_nlgf = *this;
+        forAll(g_nlgf,i)
+          {
+            scalar I = srnz[i]*(rhoS*dS*dS/(pres[i]-p0));
+            scalar mu = min(muS+delmu/(I_0/I+1),muMax);
+            g_nlgf[i] = srnz[i]/mu;
+          }
+        #};
+  codeInclude
+    #{
+    #include "fvCFD.H"
+    #};
+      codeOptions
+    #{
+    -I$(LIB_SRC)/finiteVolume/lnInclude         \
+    -I$(LIB_SRC)/meshTools/lnInclude
+    #};
+
+    codeLibs
+    #{
+    -lmeshTools                                 \
+    -lfiniteVolume
+    #};*/
+		      }
+		    p
+		      {
+			type            calculated;
+                        value           uniform 1e5;
+		      }
+		    p_IR
+                      {
+                        type            calculated;
+        		value           uniform 1e5;
+                      }
+		    p_rgh
+		      {
+			type            fixedFluxPressure;
+			value           uniform 1e5;
+		      }
+		    nut.air
+                      {
+                       	type            nutkWallFunction;
+			value           $internalField;
+                      }
+                    nut.particles
+                      {
+                        type            calculated;
+			value           uniform 1e3;
+                      }
+		    T.air
+                      {
+                       	type            zeroGradient;
+                      }
+                    T.particles
+                      {
+                        type            zeroGradient;
+                      }
+		    k.air
+                      {
+                       	type            kqRWallFunction;
+			value           uniform 1;
+                      }
+                    Theta.particles
+                      {
+                        type            zeroGradient;
+                      }
+		    epsilon.air
+                      {
+                        type            epsilonWallFunction;
+			value           uniform 10;
+                      }
+		    href_nlgf
+                      {
+                        type fixedValue;
+			value uniform $y9;
+        	      }
+		  }
+	    }
+	    slave 
+	      {${..master}}
+	    
+	}
+    }
+}
+// ************************************************************************* // 
