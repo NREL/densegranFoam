@@ -17,7 +17,7 @@ OpenFOAM:
 
 
 densegranFoam compilation:
-   Once OpenFOAM is installed and densegranFoam downloaded, please follow these steps:
+Once OpenFOAM is installed and densegranFoam downloaded, please follow these steps:
    1. Copy the densegranFoam solver codes from applications to WM_PROJECT_USER_DIR.
    2. Run ./Allwclean
    3. Run ./Allwmake
