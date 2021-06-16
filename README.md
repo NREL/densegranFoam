@@ -5,6 +5,7 @@ All of these files corresponds to the latest version of the densgranFoam, create
 Required OpenFOAM Version:  [5.x](https://github.com/OpenFOAM/OpenFOAM-5.x)
 
 Solvers and Codes Included:
+
 A.  Solvers
     densegranFoam - This solver is used for simulating dense granular flow. The solver at current version uses mu(I)-rheology model for transport parameters. In later versions other models may be incorporated. 
 
