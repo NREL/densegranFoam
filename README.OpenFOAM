@@ -1,2 +1,8 @@
-README for [OpenFOAM-5.x](https://openfoam.org)
+# README for OpenFOAM-5.x
+
+About OpenFOAM
+OpenFOAM is a free, open source computational fluid dynamics (CFD) software package released by the OpenFOAM Foundation. It has a large user base across most areas of engineering and science, from both commercial and academic organisations. OpenFOAM has an extensive range of features to solve anything from complex fluid flows involving chemical reactions, turbulence and heat transfer, to solid dynamics and electromagnetics.
+
+Copyright
+OpenFOAM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. See the file COPYING in this directory or <http://www.gnu.org/licenses/>, for a description of the GNU General Public License terms under which you can copy the files.
 
