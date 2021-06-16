@@ -1,6 +1,6 @@
 # densegranFoam
 
-All of these files corresponds to the latest version of the densgranFoam, created at the National Renewable Energy Laboratory (NREL).  The files are based on the OpenFOAM software. Please see the included OpenFOAM readme file ("README.OpenFOAM") and the GPL licence information ("COPYING"). Access to and use of densgranFoam imposes obligations on the user, as set forth in the DATA USE DISCLAIMER AGREEMENT ("AGREEMENT").
+All of these files corresponds to the latest version of the densgranFoam, created at the National Renewable Energy Laboratory (NREL).  The files are based on the OpenFOAM software. Please see the included OpenFOAM readme file ("[README.OpenFOAM](https://github.com/NREL/densegranFoam/blob/main/README.OpenFOAM)") and the GPL licence information ("[COPYING](https://github.com/NREL/densegranFoam/blob/main/COPYING)"). Access to and use of densgranFoam imposes obligations on the user, as set forth in the DATA USE DISCLAIMER AGREEMENT ("[AGREEMENT](https://github.com/NREL/densegranFoam/blob/main/AGREEMENT)").
 
 Required OpenFOAM Version:  [5.x](https://github.com/OpenFOAM/OpenFOAM-5.x)
 
