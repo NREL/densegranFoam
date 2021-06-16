@@ -2,7 +2,7 @@
 
 All of these files corresponds to the latest version of the densgranFoam, created at the National Renewable Energy Laboratory (NREL).  The files are based on the OpenFOAM software. Please see the included OpenFOAM readme file ("README.OpenFOAM") and the GPL licence information ("COPYING"). Access to and use of densgranFoam imposes obligations on the user, as set forth in the DATA USE DISCLAIMER AGREEMENT ("AGREEMENT").
 
-Required OpenFOAM Version:  5.x
+Required OpenFOAM Version:  [5.x](https://openfoam.org)
 
 Solvers and Codes Included:
 A.  Solvers
