@@ -1,0 +1,9 @@
+# tell git to handle binary files in a more efficient way
+# http://thread.gmane.org/gmane.comp.version-control.git/146957/focus=147598
+
+*.pdf binary -delta
+*.jpg  binary -delta
+*.png  binary -delta
+*.psd  binary -delta
+*.gz  binary -delta
+*.bz2  binary -delta

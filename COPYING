@@ -1,6 +1,6 @@
 Copyright (c) 2020 Alliance for Sustainable Energy, LLC
-The muIModel in phaseCompressibleTurbulenceModels is developed by the Alliance for Sustainable Energy, LLC.
-For the remainder of the code is a property of OpenFOAM Foundation.
+Code related to `muIModel` in `phaseCompressibleTurbulenceModels` is developed by the Alliance for Sustainable Energy, LLC. See `AGREEMENT` for use of that code.
+The remainder of the code in this repository is part of OpenFOAM (copyright below).
 
 GNU GENERAL PUBLIC LICENSE
 

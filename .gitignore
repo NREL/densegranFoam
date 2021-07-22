@@ -1,0 +1,104 @@
+# project-specific ignores
+
+
+### awk script files
+*.awk
+
+
+###############################
+*.log
+*.lof
+*.aux
+*.fff
+*.synctex.gz
+*.spl
+
+###############################
+.svn
+.bzr
+.hgsvn
+*.komodoproject
+.hg
+*.wpr
+*.sublime-*
+
+#build and log files
+###############################
+*.so
+*.o
+*.pyc
+*.pyo
+*.out
+*.log
+*.tmp
+
+# swap files
+###############################
+*.swp
+
+#Apple / Mac stuff
+###############################
+.DS_Store
+._*
+.Trash
+
+#crazy files
+###############################
+META
+build/
+tmp/
+junk
+trash
+
+#  Binary stuff I don't want
+#  in a repo.
+###############################
+*.exe
+*.zip
+*.tgz
+*.tar
+*.bzip
+*.tbz
+*.gz
+*.bin
+*.zexp
+
+# obvious backup files
+###############################
+*.orig
+*.bak
+*~
+~*
+
+#database files
+###############################
+*.db
+
+# plone/zope stuff
+#########################
+fake-eggs
+develop-eggs
+var/*
+eggs
+parts/*
+opt
+bin
+*egg-info
+.installed.cfg
+adminPassword.txt
+picked-versions.cfg
+*.mo
+*.egg
+*.EGG
+*.EGG-INFO
+build
+downloads
+dist
+.hg
+.bzr
+.svn
+*.pyc
+*.pyo
+*.tmp*
+### data files
+*.dat
