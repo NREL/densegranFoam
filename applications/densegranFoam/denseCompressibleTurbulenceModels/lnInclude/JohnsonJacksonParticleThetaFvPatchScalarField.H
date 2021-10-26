@@ -1,0 +1,1 @@
+../muJphiJModels/derivedFvPatchFields/JohnsonJacksonParticleTheta/JohnsonJacksonParticleThetaFvPatchScalarField.H
