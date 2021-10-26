@@ -1,1 +1,0 @@
-../liftModels/noLift/noLift.C

@@ -1,1 +1,0 @@
-../aspectRatioModels/aspectRatioModel/aspectRatioModel.C

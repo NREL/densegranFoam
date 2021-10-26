@@ -1,1 +1,0 @@
-../virtualMassModels/Lamb/Lamb.C

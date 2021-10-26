@@ -1,1 +1,0 @@
-../heatTransferModels/heatTransferModel/newHeatTransferModel.C

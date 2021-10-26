@@ -1,1 +1,0 @@
-../aspectRatioModels/TomiyamaAspectRatio/TomiyamaAspectRatio.H

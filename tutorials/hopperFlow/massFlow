@@ -1,9 +1,0 @@
-postProcess -func 'flowRatePatch(name=orifice)' -time 1.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 2.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 3.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 4.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 5.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 6.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 7.0
-postProcess -func 'flowRatePatch(name=orifice)' -time 8.0
-postProcess -func 'flowRatePatch(name=orifice)' -latestTime

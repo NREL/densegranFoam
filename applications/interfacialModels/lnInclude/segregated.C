@@ -1,1 +1,0 @@
-../dragModels/segregated/segregated.C

@@ -1,1 +1,0 @@
-../liftModels/constantLiftCoefficient/constantLiftCoefficient.C

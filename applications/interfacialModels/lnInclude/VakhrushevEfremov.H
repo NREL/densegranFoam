@@ -1,1 +1,0 @@
-../aspectRatioModels/VakhrushevEfremov/VakhrushevEfremov.H

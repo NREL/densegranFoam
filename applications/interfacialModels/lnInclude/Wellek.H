@@ -1,1 +1,0 @@
-../aspectRatioModels/Wellek/Wellek.H
