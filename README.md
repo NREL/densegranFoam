@@ -7,10 +7,13 @@ Required OpenFOAM Version:  [5.x](https://github.com/OpenFOAM/OpenFOAM-5.x)
 Solvers and Codes Included:
 
 A.  Solvers
-    densegranFoam - This solver is used for simulating dense granular flow. The solver at current version uses mu(I)-rheology model for transport parameters. In later versions other models may be incorporated. 
+    densGranEulerFoam - This solver is used for simulating dense granular flow based on multiPhaseEulerFoam. The solver at current version uses mu(I)-rheology model for transport parameters. In later versions other models may be incorporated. 
+    
+    granularEulerFoam - This solver is used for simulating dense granular flow based on twoPhaseEulerFoam. The solver at current version uses mu(I)-rheology model for transport parameters. In later versions other models may be incorporated. 
 
 B.  Tutorials
-    hopperFlow - A simple tutorial case for simulating biomass feedstock flow through a 2D hopper.
+    densGranEulerFoam - conicalHopper, damBreak4phase, inclinedPlane
+    granularEulerFoam - biomassInclinedFlow, dataProcess
 
 Installation/Compiling:
 OpenFOAM:
