@@ -1,0 +1,48 @@
+angD 21;
+AB 2; // Ramp length in m
+AC 1; // Box length in m
+AF 0.2; // Box height in m
+aa 0.01; // Gate openning in m
+bottomL 0.200;
+d 5e-3;
+
+BC #calc "$AB+$AC";
+ang #calc "degToRad($angD)";
+CDp #calc "$BC*sin($ang)"; // Elevation of left end point
+AE #calc "$AB*sin($ang)"; // Ramp left end vertical height 
+EB #calc "$AB*cos($ang)"; // Ramp left end point horizontal distance
+
+x1 #calc "$bottomL*cos($ang)"; //x vert of pt2
+y1 #calc "-$bottomL*sin($ang)";
+x2 #calc "-$EB";
+y2 $AE;
+x3 #calc "-$BC*cos($ang)";
+y3 $CDp;
+x8 #calc "$x2+$AF*sin($ang)";
+y8 #calc "$y2+$AF*cos($ang)";
+x9 #calc "$x3+$AF*sin($ang)";
+y9 #calc "$y3+$AF*cos($ang)";
+x10 #calc "$AF*sin($ang)";
+y10 #calc "$AF*cos($ang)";
+
+x4 #calc "$aa*sin($ang)";
+y4 #calc "$aa*cos($ang)";
+x5 #calc "$x1+$x10";
+y5 #calc "$y1+$y10";
+x6 #calc "$x2+$aa*sin($ang)";
+y6 #calc "$y2+$aa*cos($ang)";
+x7 #calc "$x3+$aa*sin($ang)";
+y7 #calc "$y3+$aa*cos($ang)";
+
+x22 #calc "$x1+$x4";
+y22 #calc "$y1+$y4";
+
+pR 1e5;
+pR0 1e4;
+
+ly #calc "round($aa/$d/2)";
+uy #calc "round($AF/$d/4)";
+boxX #calc "round($AC/$d/4)";
+rampX #calc "round($AB/$d/4)";
+floorX #calc "round($bottomL/$d/4)";
+dz 1;

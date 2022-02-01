@@ -1,0 +1,80 @@
+/*--------------------------------*- C++ -*----------------------------------* \
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      turbulenceProperties.particles;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "../parameters";
+simulationType  RAS;
+
+RAS
+{
+  RASModel muJphiJ;
+
+    turbulence      off;
+    printCoeffs     on;
+    
+    muJphiJCoeffs
+    {
+        e                       0.8;
+        alphaMax                0.63;
+        alphaMinFriction        0.53;
+        residualAlpha           1e-4;
+	
+	rhoC 1.25;
+	nuC 1.49e-5;
+	mu1 0.4;
+	mu2 0.79;
+	J0 0.3;
+	rhoS 210;
+	phiM 0.63;//0.585;
+	S0 7.5;
+	relaxPa               1;
+	maxNut 2.0;
+	minNut 1e-4;
+	A                     280;//480;
+	t0inv                 5;
+	
+
+     	viscosityModel              nonlocal;//rheology;
+        conductivityModel           Gidaspow;
+	effectivePressureModel      JohnsonJacksonBoyer;
+        granularPressureModel       Lun;//SyamlalRogersOBrien;//Lun;
+        frictionalStressModel       JohnsonJacksonSchaeffer;
+        radialModel                 SinclairJackson;
+
+	JohnsonJacksonBoyerCoeffs
+	  {
+	    aMJ 10;//1300;
+	    phiRLP 0.53;
+	    phiRCP 0.63;
+	    alphaDeltaMin 0.53;
+	  }
+
+	SchaefferCoeffs
+        {
+            phi                     25;
+	}
+        JohnsonJacksonSchaefferCoeffs
+        {
+            Fr                      0.001;
+            eta                     2;
+            p                       3;
+            phi                     20;
+            alphaDeltaMin           0.05;
+        }
+    }
+}
+
+
+// ************************************************************************* //

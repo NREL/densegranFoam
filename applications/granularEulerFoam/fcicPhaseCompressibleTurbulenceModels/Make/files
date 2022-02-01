@@ -1,0 +1,27 @@
+fcicPhaseCompressibleTurbulenceModels.C
+phasePressureModel/phasePressureModel.C
+hypoplasticModel/hypoplasticModel.C
+muIModel/muIModel.C
+
+biomassModels/biomassModel/biomassModel.C
+biomassModels/viscosityModel/viscosityModel/viscosityModel.C
+biomassModels/viscosityModel/viscosityModel/newViscosityModel.C
+biomassModels/viscosityModel/eulerNonlocalGF/eulerNonlocalGF.C
+biomassModels/viscosityModel/muIRheology/muIRheology.C
+
+biomassModels/fcicGranularPressureModel/fcicGranularPressureModel/fcicGranularPressureModel.C
+biomassModels/fcicGranularPressureModel/fcicGranularPressureModel/newFcicGranularPressureModel.C
+biomassModels/fcicGranularPressureModel/nlgfPressure/nlgfPressure.C
+biomassModels/fcicGranularPressureModel/muIPressure/muIPressure.C
+biomassModels/fcicGranularPressureModel/BauyerPressure/BauyerPressure.C
+
+biomassModels/frictionalStressModel/frictionalStressModel/frictionalStressModel.C
+biomassModels/frictionalStressModel/frictionalStressModel/newFrictionalStressModel.C
+biomassModels/frictionalStressModel/JohnsonJackson/JohnsonJacksonFrictionalStress.C
+biomassModels/frictionalStressModel/Schaeffer/SchaefferFrictionalStress.C
+biomassModels/frictionalStressModel/JohnsonJacksonSchaeffer/JohnsonJacksonSchaefferFrictionalStress.C
+
+
+
+
+LIB = $(FOAM_USER_LIBBIN)/libfcicPhaseCompressibleTurbulenceModels

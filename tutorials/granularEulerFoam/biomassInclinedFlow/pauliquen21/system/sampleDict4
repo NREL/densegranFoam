@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------* \
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.6                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      sampleDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include    "../parameters";
+edge 0.8;
+xL #calc "-$edge*cos($ang)";
+yL #calc "$edge*sin($ang)";
+xH $xL;
+yH 1.0;
+
+
+
+type sets;
+libs ("libsampling.so");
+
+
+interpolationScheme cell;
+graphFormat gnuplot;
+
+//surfaceFormat    raw;
+//surfaceFormat raw;
+
+
+//setFormat     ASCII;
+setFormat    raw;
+
+sets
+(
+// evaluate phase and pressure close to tank rightwall using line probe
+   centerPatch
+   {
+        type    uniform;
+        axis    xyz;
+        start  ( $xL   $yL   0.000);// ( -0.58   0.0   0.000);
+        end    ( $xH   $yH   0.000);//( -0.58   2.000   0.000);
+        nPoints 100;
+   }
+
+);
+
+fields
+(
+ alpha.particles
+ );
+//surfaceFormat raw;
+surfaces
+(
+);
+
+

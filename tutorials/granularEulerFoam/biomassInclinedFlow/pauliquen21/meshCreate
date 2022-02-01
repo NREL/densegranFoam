@@ -1,0 +1,7 @@
+#!/bin/sh
+
+blockMesh
+#topoSet
+#createBaffles
+setFields
+foamToVTK

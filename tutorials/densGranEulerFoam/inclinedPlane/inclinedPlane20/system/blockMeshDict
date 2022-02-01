@@ -1,0 +1,116 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                |                                                 |
+| \      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \    /   O peration     | Version:  5                                     |
+|   \  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+#include "../parameters";
+
+
+zT 0.001;
+
+vertices
+(
+ (0 0 0)//0 ($x01 0 0)//1
+ ($x1 $y1 0)//1
+ ($x2 $y2 0)//2
+ ($x3 $y3 0)//3
+ ($x4 $y4 0)//4
+ ($x5 $y5 0)//5
+ ($x6 $y6 0)//6
+ ($x7 $y7 0)//7 ($x8 $y8 0)//8
+ ($x8 $y8 0)//8
+ ($x9 $y9 0)//9
+ ($x10 $y10 0) //10
+ (0 0 $zT)//11
+ ($x1 $y1 $zT)//12
+ ($x2 $y2 $zT)//13
+ ($x3 $y3 $zT)//14
+ ($x4 $y4 $zT)//15
+ ($x5 $y5 $zT)//16
+ ($x6 $y6 $zT)//17
+ ($x7 $y7 $zT)//18
+ ($x8 $y8 $zT)//19
+ ($x9 $y9 $zT)//20
+ ($x10 $y10 $zT)//21
+ ($x22 $y22 0)//22
+ ($x22 $y22 $zT)//23
+);
+
+blocks
+(
+ hex (3 0 10 9 14 11 21 20) ($rampX $uy $dz) simpleGrading (1 1 1) // lower
+ hex (0 1 5 10 11 12 16 21) ($floorX $uy $dz) simpleGrading (1 1 1) // lower
+);
+
+edges
+(
+);
+
+boundary
+(
+ left
+ {
+  type wall;
+  
+  faces
+   (
+    (3 9 20 14)
+   );
+  }
+ right
+ {
+  type patch;
+  
+  faces
+   (
+    (5 1 12 16)
+   );
+  }
+ ramp
+ {
+  type wall;
+  
+  faces
+  (
+  (0 3 14 11)
+  );
+  }
+ top
+ {
+  type patch;
+  
+  faces
+   (
+    (9 10 21 20)
+    (10 5 16 21)
+   );
+  }
+bottom
+ {
+  type patch;
+  
+  faces
+   (
+    (0 1 12 11)
+   );
+  }
+);
+
+mergePatchPairs
+(
+);
+
+// ************************************************************************* //

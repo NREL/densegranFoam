@@ -1,1 +1,0 @@
-../muJphiJModels/radialModel/SinclairJackson/SinclairJacksonRadial.C

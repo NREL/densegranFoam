@@ -1,1 +1,0 @@
-../muJphiJModels/frictionalStressModel/frictionalStressModel/newFrictionalStressModel.C

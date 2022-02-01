@@ -1,1 +1,0 @@
-../muJphiJModels/conductivityModel/HrenyaSinclair/HrenyaSinclairConductivity.C

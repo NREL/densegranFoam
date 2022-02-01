@@ -1,0 +1,109 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createBafflesDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include    "../parameters";
+internalFacesOnly true;
+internalField   uniform 0.0;
+
+baffles
+{
+    baffleFaces
+    {
+        type		faceZone;
+        zoneName	gateZone;
+    	flip		false;
+	
+        patches
+        {
+            master
+            {
+                name            gate;
+                type            wall;
+		patchFields
+		  {
+		    U.air
+		      {
+			type            fixedValue;//
+			value           uniform (0 0 0);
+		      }
+		    U.particles
+                      {
+                        type            fixedValue;//
+			value           uniform (0 0 0);
+                      }
+		    alpha.particles
+		      {
+			type            zeroGradient;
+		      }
+                    alphat.particles
+                      {
+                        type            calculated;
+			value           $internalField;
+                      }
+		    g_nlgf
+		      {
+			type            fixedValue;//
+                        value           uniform 1e-6;
+		      }
+		    p
+		      {
+			type            calculated;
+                        value           uniform 1e5;
+		      }
+		    pG
+                      {
+                        type            zeroGradient;
+                      }
+		    p_rgh
+		      {
+			type            fixedFluxPressure;
+			value           uniform 1e5;
+		      }
+                    nut.particles
+                      {
+                        type            calculated;
+			value           uniform 0;
+                      }
+		    T.air
+                      {
+                       	type            zeroGradient;
+                      }
+                    T.particles
+                      {
+                        type            zeroGradient;
+                      }
+		    k.air
+                      {
+                       	type            kqRWallFunction;
+			value           uniform 1;
+                      }
+                    Theta.particles
+                      {
+                        type            zeroGradient;
+                      }
+		    epsilon.air
+                      {
+                        type            epsilonWallFunction;
+			value           uniform 10;
+                      }
+		  }
+	    }
+	    slave 
+	      {${..master}}
+	    
+	}
+    }
+}
+// ************************************************************************* // 

@@ -1,1 +1,0 @@
-../muJphiJModels/frictionalStressModel/Schaeffer/SchaefferFrictionalStress.C

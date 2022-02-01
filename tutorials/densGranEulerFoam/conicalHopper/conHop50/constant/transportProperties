@@ -1,0 +1,117 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+phases
+(
+     biomass
+     {
+         kappa      1e-06;
+         Cp         4195;
+         rho        210;
+
+         diameterModel constant;
+         constantCoeffs
+         {
+             d               0.82e-3;
+         }
+
+	 physicalModel rheology;
+         constantCoeffs
+         {
+           nu0                  0.002;
+         }
+         rheologyCoeffs
+         {
+	   rhoC			1;
+	   nuC			1.48e-5;
+	   mu1			0.55;
+	   mu2			0.74;
+	   J0			0.005;
+	   phiM			0.585;
+	   S0			2;
+	   aMJ			100;
+	   phiRLP		0.53;
+	   phiRCP		0.63;
+	   alphaDeltaMin	0.53;
+         }
+     }
+
+     air
+     {
+         kappa      2.63e-2;
+         Cp         1007;
+         rho        1;
+
+         diameterModel constant;
+         constantCoeffs
+         {
+             d              3e-3;
+         }
+         physicalModel constant;
+         constantCoeffs
+         {
+	   nu0                  1.48e-5;
+	 }
+     }
+);
+
+sigmas
+(
+    (air biomass)     0.07
+);
+
+interfaceCompression
+(
+    (air biomass)     1
+);
+
+virtualMass
+(
+);
+
+drag
+(
+    (air biomass)
+    {
+        type blended;
+
+        air
+        {
+            type SchillerNaumann;
+            residualPhaseFraction 0;
+            residualSlip 0;
+        }
+
+        biomass
+        {
+            type SchillerNaumann;
+            residualPhaseFraction 0;
+            residualSlip 0;
+        }
+
+        residualPhaseFraction 1e-3;
+        residualSlip 1e-3;
+    }
+);
+
+
+// This is a dummy to support the Smagorinsky model
+transportModel  Newtonian;
+nu              [0 2 -1 0 0 0 0] 0;
+
+
+// ************************************************************************* //

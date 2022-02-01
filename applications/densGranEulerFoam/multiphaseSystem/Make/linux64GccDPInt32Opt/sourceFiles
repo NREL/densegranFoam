@@ -1,0 +1,13 @@
+SOURCE = \
+phaseModel/phaseModel.C \
+diameterModels/diameterModel/diameterModel.C \
+diameterModels/diameterModel/newDiameterModel.C \
+diameterModels/constantDiameter/constantDiameter.C \
+diameterModels/isothermalDiameter/isothermalDiameter.C \
+physicalModels/physicalModel/physicalModel.C \
+physicalModels/physicalModel/newPhysicalModel.C \
+physicalModels/constantViscosity/constantViscosity.C \
+physicalModels/rheologyViscosity/rheologyViscosity.C \
+physicalModels/nonlocalViscosity/nonlocalViscosity.C \
+alphaContactAngle/alphaContactAngleFvPatchScalarField.C \
+multiphaseSystem.C 

@@ -1,0 +1,30 @@
+EXE_INC = \
+	-DFULLDEBUG -g -O0 \
+    -I$(LIB_SRC)/transportModels/compressible/lnInclude \
+    -I$(LIB_SRC)/thermophysicalModels/basic/lnInclude \
+    -I$(LIB_SRC)/transportModels/incompressible/lnInclude \
+    -I$(LIB_SRC)/TurbulenceModels/turbulenceModels/lnInclude \
+    -I$(LIB_SRC)/TurbulenceModels/compressible/lnInclude \
+    -I$(LIB_SRC)/TurbulenceModels/phaseCompressible/lnInclude \
+    -IfcicPhaseCompressibleTurbulenceModels/lnInclude \
+    -IinterfacialModels/lnInclude \
+    -ItwoPhaseSystem/lnInclude \
+    -I$(LIB_SRC)/finiteVolume/lnInclude \
+    -I$(LIB_SRC)/meshTools/lnInclude \
+    -I$(LIB_SRC)/sampling/lnInclude
+
+EXE_LIBS = \
+    -L$(FOAM_USER_LIBBIN) \
+    -lcompressibleTransportModels \
+    -lfluidThermophysicalModels \
+    -lspecie \
+    -lturbulenceModels \
+    -lcompressibleTurbulenceModels \
+    -lfcicPhaseCompressibleTurbulenceModels \
+    -lincompressibleTransportModels \
+    -lcompressibleTwoPhaseSystem \
+    -lcompressibleEulerianInterfacialModels \
+    -lfiniteVolume \
+    -lfvOptions \
+    -lmeshTools \
+    -lsampling
